@@ -25,6 +25,14 @@ module.exports.list = (event, context, callback) => {
     const response = {
       statusCode: 200,
       body: JSON.stringify(result.Items),
+      headers: {
+        "Content-Type" : "application/json",
+        "Access-Control-Allow-Headers" : "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "Access-Control-Allow-Methods" : "GET",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Allow-Origin" : "*",
+        "X-Requested-With" : "*"
+    }
     };
     callback(null, response);
   });
